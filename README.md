@@ -17,6 +17,7 @@ The incoming file must be in UTF-8 encoding. For example, the program encrypts t
 For example, on Debian-base distributions, just type the terminal command:
 
 `sudo apt-get install golang`
+
 `go run Enigma.go`
 
 ## MacOS
@@ -24,4 +25,5 @@ For example, on Debian-base distributions, just type the terminal command:
 You can install the golang compiler from Homebrew
 
 `brew install golang`
+
 `go run Enigma.go`
