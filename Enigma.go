@@ -39,7 +39,7 @@ func (r *thirdRotor) code(input int, direction int) int {
 	if r.codePosition > 26 {
 		r.codePosition -= 26
 	}
-	search := r.cykleSearch(input + r.codePosition)
+	search := r.cycleSearch(input + r.codePosition)
 	result := 0
 	for i := 0; i < 26; i++ {
 		if r.dictionary[i].in == search && switchDirection(direction) == 0 || r.dictionary[i].out == search && switchDirection(direction) == 1 {
@@ -80,10 +80,10 @@ func (r *thirdRotor) decode(input int, direction int) int {
 			break
 		}
 	}
-	return r.cykleSearch(result)
+	return r.cycleSearch(result)
 }
 
-func (r *thirdRotor) cykleSearch(search int) int {
+func (r *thirdRotor) cycleSearch(search int) int {
 	for search > 26 {
 		search -= 26
 	}
@@ -143,7 +143,7 @@ func (r *secondRotor) code(input int, direction int) int {
 	r.codePosition++
 	realPosition := r.codePosition
 
-	search := r.cykleSearch(input + r.cycleItterator(realPosition))
+	search := r.cycleSearch(input + r.cycleItterator(realPosition))
 	result := 0
 	for i := 0; i < 26; i++ {
 		if r.dictionary[i].in == search && switchDirection(direction) == 0 || r.dictionary[i].out == search && switchDirection(direction) == 1 {
@@ -182,7 +182,7 @@ func (r *secondRotor) decode(input int, direction int) int {
 			break
 		}
 	}
-	return r.cykleSearch(result)
+	return r.cycleSearch(result)
 }
 
 func (r *secondRotor) cycleItterator(itterator int) int {
@@ -192,7 +192,7 @@ func (r *secondRotor) cycleItterator(itterator int) int {
 	return itterator
 }
 
-func (r *secondRotor) cykleSearch(search int) int {
+func (r *secondRotor) cycleSearch(search int) int {
 	for search > 26 {
 		search -= 26
 	}
@@ -225,7 +225,7 @@ func (r *firstRotor) code(input int, direction int) int {
 	r.codePosition++
 	realPosition := r.codePosition
 
-	search := r.cykleSearch(input + r.cycleItteratorSqrt(realPosition))
+	search := r.cycleSearch(input + r.cycleItteratorSqrt(realPosition))
 	result := 0
 	for i := 0; i < 26; i++ {
 		if r.dictionary[i].in == search && switchDirection(direction) == 0 || r.dictionary[i].out == search && switchDirection(direction) == 1 {
@@ -264,7 +264,7 @@ func (r *firstRotor) decode(input int, direction int) int {
 			break
 		}
 	}
-	return r.cykleSearch(result)
+	return r.cycleSearch(result)
 }
 
 func (r *firstRotor) cycleItteratorSqrt(itterator int) int {
@@ -278,7 +278,7 @@ func (r *firstRotor) cycleItteratorSqrt(itterator int) int {
 	return itterator
 }
 
-func (r *firstRotor) cykleSearch(search int) int {
+func (r *firstRotor) cycleSearch(search int) int {
 	for search > 26 {
 		search -= 26
 	}
